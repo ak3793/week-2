@@ -20,7 +20,6 @@ lat2 = 22.552317
 
 lng1 = 114.044329
 lng2 = 114.076644
-
 query = 'SELECT FROM Listing WHERE latitude BETWEEN {} AND {} AND longitude BETWEEN {} AND {}'
 
 records = client.command(query.format(lat1, lat2, lng1, lng2))
