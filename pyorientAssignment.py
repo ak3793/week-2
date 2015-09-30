@@ -30,20 +30,33 @@ numListings = len(records)
 print 'received ' + str(numListings) + ' records'
 
 # [ANALYZE THE RETURNED RECORDS TO DETERMINE THE MINIMUM, MAXIMUM, AND AVERAGE PRICE OF THE LISTINGS]
-# Hint: the loop that you need to look into each record is already provided below.
-# To find the average price, add up all the prices and divide by the number of results
-# To find the minimum price, create a variable and initialize it to a very large number, 
-# then test each price to see if it is smaller than the current minimum. If it is, update 
-# the minimum variable with that price. You can do something similar to find the maximum.
 
+totalCounter = 0 
 for record in records:
+    # To find the average price, add up all the prices and divide by the number of results
+    
 	print record.price
+	totalCounter=totalCounter+record.price
+average=totalCounter/len(records)
 
-
+# To find the minimum price, create a variable and initialize it to a very large number,
+minPrice=10000000000000
+# then test each price to see if it is smaller than the current minimum. If it is, update 
+for record in records:
+    if record.price<minPrice:
+        minPrice=record.price
+    else: minPrice=minPrice
+    
+    # the minimum variable with that price. You can do something similar to find the maximum.
+    maxPrice=0
+    if record.price>maxPrice:
+        maxPrice=record.price
+    else: maxPrice=maxPrice
+    
 # [PRINT OUT THE RESULTING VALUES BY CONCATENATING THEM TO THESE LINES TO CHECK YOUR WORK]
 
-print 'min price: '
-print 'max price: ' 
-print 'average price: '
+print 'min price: '+ str(minPrice)
+print 'max price: ' + str(maxPrice)
+print 'average price: '+ str(average)
 
 client.db_close()
